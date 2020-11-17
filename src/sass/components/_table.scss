@@ -1,0 +1,43 @@
+table {
+    border-radius: 5px;
+    font-size: 20px;
+    color: $font-light;
+    border-collapse: collapse;
+    background-color: $background-grey-light;
+    tr th {
+        font-family: $font-title;
+        font-size: 20px;
+        font-weight: 900;
+        color: $font-dark;
+        border-bottom: 1px solid $border-dark;
+        padding: 5px 10px;
+    }
+    tr {
+        td {
+            font-family: $font-text;
+            padding: 5px 10px;
+        }
+    }
+    tr:nth-child(even) {
+        background: $background-grey-dark;
+    }
+    button {
+        padding: 5px;
+        width: 34px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0);
+        
+        img.icon {
+            height: 20px;
+            padding: 0;
+            width: 20px;
+            filter: invert(67%) sepia(23%) saturate(235%) hue-rotate(162deg) brightness(85%) contrast(89%);
+            transition: 0.3s;
+            &:hover{
+                filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(0%);
+                cursor: pointer;
+            }
+        }
+    }
+}

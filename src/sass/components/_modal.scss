@@ -1,0 +1,21 @@
+.modal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    background-color: rgba(70, 70, 70, 0.467);
+    left: 0;
+    top: 0;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    .card{
+        z-index: 1001;
+    }
+    &.visible {
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+    }
+}
