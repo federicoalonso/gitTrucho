@@ -5,17 +5,17 @@ import Historial from './historial.js';
 
 export default class Sistema {
 
-     
-    constructor() {
-      
-     
+
+  constructor() {
+
+
 
     this.listaProfesores = [];
     this.listaAlumnos = [];
     this.listaLecciones = [];
     this.listaHistorial = [];
-    this.alumnoIdLogueado=0;
-    this.profesorIdLogueado=0;
+    this.alumnoIdLogueado = 0;
+    this.profesorIdLogueado = 0;
     this.datosPrueba();
   }
 
@@ -28,24 +28,23 @@ export default class Sistema {
 
   }
 
-     cargarLeccion(nombre, descripcion, imagen, tablatura){
+  cargarLeccion(nombre, descripcion, imagen, tablatura) {
 
-        alert("leccion cargada");
-        var leccion = new Leccion(nombre,descripcion,imagen,tablatura,profesorIdLogueado);
-        this.listaLecciones.add(leccion);
-
-        
-     }
-
-
-     historial(idLeccion){
-
-      var historial = new Historial(idLeccion, alumnoIdLogueado);
-      listahistorial.add(historial);
-
-     }
-    
-    
+    var leccion = new Leccion(nombre, descripcion, imagen, tablatura, this.profesorIdLogueado);
+    this.listaLecciones.push(leccion);
 
 
   }
+
+
+  historial(idLeccion) {
+
+    var historial = new Historial(idLeccion, alumnoIdLogueado);
+    listahistorial.push(historial);
+
+  }
+
+
+
+
+}

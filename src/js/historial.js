@@ -1,4 +1,4 @@
-class Historial {
+export default class Historial {
     
     constructor(idLeccion, idAlumno) {
       
