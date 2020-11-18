@@ -90,7 +90,7 @@
         </section>
     </main>
     <div class="contenedor modal" id="modal">
-        <div class="card col-12 m-auto">
+        <div class="card col-12 m-auto" id="card">
             <div class="card-title">
                 <h2>Nueva Lección</h2>
             </div>
@@ -114,11 +114,15 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button id="btn-ocultar-modal">Cancelar</button>
+                <div class="btn-box">
+                    <button class="btn" id="btn-ocultar-modal">Cancelar</button>
+                    <div class="or"></div>
+                    <button class="btn btn-confirm" id="btn-guardar">Guardar</button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="./crearLecciones.js"></script>
+    <script type="module" src="./crearLecciones.js"></script>
 </body>
 
 </html>

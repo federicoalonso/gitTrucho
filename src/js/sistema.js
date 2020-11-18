@@ -5,31 +5,28 @@ import Historial from './historial.js';
 
 export default class Sistema {
 
-  var alumnoIdLogueado = 0;
-  var profesorIdLogueado = 0;
-
-    
+     
     constructor() {
       
-      this.listaProfesores = new ArrayList();
-      this.listaAlumnos = new ArrayList();
-      this.listaLecciones = new ArrayList();
-      this.listaHistorial = new ArrayList();
+     
 
-      datosPrueba();
+    this.listaProfesores = [];
+    this.listaAlumnos = [];
+    this.listaLecciones = [];
+    this.listaHistorial = [];
+    this.alumnoIdLogueado=0;
+    this.profesorIdLogueado=0;
+    this.datosPrueba();
+  }
 
-    }
+  datosPrueba() {
 
+    var alumno1 = new Alumno("Ramael");
+    var profesor1 = new Profesor("Alberto");
+    this.listaProfesores.push(profesor1);
+    this.listaAlumnos.push(alumno1);
 
-     datosPrueba(){ 
-
-      var alumno1 = new Alumno("Ramael");
-      var profesor1 = new Profesor("Alberto");
-      this.listaProfesores.add(profesor1);
-      this.listaAlumnos.add(alumno1);
-        
-    }
-
+  }
 
      cargarLeccion(nombre, descripcion, imagen, tablatura){
 
