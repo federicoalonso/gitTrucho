@@ -23,14 +23,19 @@ export default class Sistema {
 
     var alumno1 = new Alumno("Ramael");
     var profesor1 = new Profesor("Alberto");
+
+    for(var i=0; i<90; i++){
+      var leccion = new Leccion("Lección Num: " + (i+1), "Descripción de la lección número " + (i+1), "Tablatura de la lección " + (i+1), profesor1);
+      this.listaLecciones.push(leccion);
+    }
+
     this.listaProfesores.push(profesor1);
     this.listaAlumnos.push(alumno1);
-
   }
 
-  cargarLeccion(nombre, descripcion, imagen, tablatura) {
+  cargarLeccion(nombre, descripcion, tablatura) {
 
-    var leccion = new Leccion(nombre, descripcion, imagen, tablatura, this.profesorIdLogueado);
+    var leccion = new Leccion(nombre, descripcion, tablatura, this.profesorIdLogueado);
     this.listaLecciones.push(leccion);
 
 

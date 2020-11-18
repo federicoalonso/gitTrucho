@@ -111,7 +111,8 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: .5rem 1rem; }
+  padding: .5rem 1rem;
+  z-index: 1; }
   .barra-nav .logo {
     height: 80px;
     margin-left: 5%; }
@@ -188,6 +189,7 @@ table {
     width: 34px;
     border-radius: 50%;
     border: none;
+    z-index: 2;
     background: rgba(255, 255, 255, 0); }
     table button img.icon {
       height: 20px;
@@ -198,6 +200,34 @@ table {
       table button img.icon:hover {
         filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(0%);
         cursor: pointer; }
+
+.paginador {
+  margin-top: 20px;
+  margin-left: auto;
+  display: flex;
+  font-family: "Lato", sans-serif; }
+  .paginador ul.pagination {
+    margin-left: auto !important;
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  .paginador ul.pagination li {
+    display: inline; }
+  .paginador ul.pagination li a {
+    color: #192734;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: 0.3s; }
+    .paginador ul.pagination li a.active {
+      font-weight: 700;
+      background-color: #22af22;
+      color: whitesmoke; }
+    .paginador ul.pagination li a:hover:not(.active):not(.disabled) {
+      background-color: #eeeeeeb4; }
+    .paginador ul.pagination li a.disabled {
+      color: #8799a6;
+      font-weight: 700; }
 
 .modal {
   position: relative;
