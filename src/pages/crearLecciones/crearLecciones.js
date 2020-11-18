@@ -1,5 +1,9 @@
 document.getElementById("btn-crear-leccion").addEventListener("click", mostrarModal);
 document.getElementById("btn-ocultar-modal").addEventListener("click", ocultarModal);
+document.getElementById("card").addEventListener("click", function(e) {
+    e.stopPropagation();
+});
+document.getElementById("modal").addEventListener("click", ocultarModal);
 document.getElementById("imp-file").addEventListener("click", seleccionarImagen);
 document.getElementById("fil-img-leccion").addEventListener("change", tomarImagen);
 
