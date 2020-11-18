@@ -1,0 +1,15 @@
+.card{
+    background-color: $background-light;
+    box-shadow:  2px 2px 8px rgba(97, 97, 97, 0.8);
+    border-radius: 5px;
+    .card-title, .card-body{
+        padding: 25px;
+        border-bottom: 1px solid $border-grey;
+    }
+    .card-title{
+        font-family: $font-title;
+    }
+    .card-footer{
+        padding: 25px;
+    }
+}
