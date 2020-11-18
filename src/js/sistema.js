@@ -8,8 +8,6 @@ export default class Sistema {
 
   constructor() {
 
-
-
     this.listaProfesores = [];
     this.listaAlumnos = [];
     this.listaLecciones = [];
