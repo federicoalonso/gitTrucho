@@ -12,6 +12,9 @@
     transition: all 0.5s;
     .card{
         z-index: 1001;
+        min-width: 350px;
+        max-height: 90%;
+        overflow-y: scroll;
     }
     &.visible {
         transform: translateY(0px);

@@ -96,10 +96,22 @@
             </div>
             <div class="card-body">
                 <div class="input-box">
+                    <input type="text" name="txt-nombre-leccion" id="txt-nombre-leccion" required>
                     <label for="txt-nombre-leccion">Nombre de la Lección</label>
-                    <input type="text" name="txt-nombre-leccion" id="txt-nombre-leccion">
                 </div>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="input-box textarea">
+                    <textarea name="txt-descripcion-leccion" id="txt-descripcion-leccion" required></textarea>
+                    <label for="txt-descripcion-leccion">Descripción de la Lección</label>
+                </div>
+                <div class="input-box textarea">
+                    <textarea name="txt-tablatura-leccion" id="txt-tablatura-leccion" required></textarea>
+                    <label for="txt-tablatura-leccion">Tablatura de la Lección</label>
+                </div>
+                <div class="input-box files" id="imp-file">
+                    <input type="file" name="fil-img-leccion" id="fil-img-leccion">
+                    <label for="fil-img-leccion">Imágen de la Lección</label>
+                    <label id="imagen-seleccionada">No ha seleccionado ninguna imágen</label>
+                </div>
             </div>
             <div class="card-footer">
                 <button id="btn-ocultar-modal">Cancelar</button>
