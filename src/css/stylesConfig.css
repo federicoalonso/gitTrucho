@@ -151,7 +151,7 @@ button {
     background-color: #1da0f2;
     color: whitesmoke; }
   button .success {
-    background-color: #3dfa3d; }
+    background-color: #22af22; }
 
 .card {
   background-color: #fff;
@@ -220,6 +220,54 @@ table {
     min-width: 350px;
     max-height: 90%;
     overflow-y: scroll; }
+    .modal .card .btn-box {
+      display: inline-flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      vertical-align: baseline;
+      width: 100%; }
+      .modal .card .btn-box .btn {
+        border-radius: 5px 0 0 5px;
+        border: none;
+        width: 50%;
+        transition: 0.3s;
+        background-color: #bfbfbf; }
+        .modal .card .btn-box .btn:hover {
+          color: whitesmoke;
+          background-color: #766c6c; }
+      .modal .card .btn-box .btn-confirm {
+        border-radius: 0 5px 5px 0;
+        background-color: #22af22; }
+        .modal .card .btn-box .btn-confirm:hover {
+          color: whitesmoke;
+          background-color: #056a05; }
+      .modal .card .btn-box .or {
+        font-size: 1rem;
+        display: block;
+        position: relative;
+        width: 0.3em;
+        height: 2.57142857em;
+        z-index: 3; }
+        .modal .card .btn-box .or:before {
+          position: absolute;
+          text-align: center;
+          border-radius: 500rem;
+          content: "o";
+          top: 50%;
+          left: 50%;
+          background-color: #fff;
+          text-shadow: none;
+          margin-top: -0.89285714em;
+          margin-left: -0.89285714em;
+          width: 1.78571429em;
+          height: 1.78571429em;
+          line-height: 1.78571429em;
+          color: rgba(0, 0, 0, 0.4);
+          font-style: normal;
+          font-weight: 700;
+          -webkit-box-shadow: 0 0 0 1px transparent inset;
+          box-shadow: 0 0 0 1px transparent inset; }
   .modal.visible {
     transform: translateY(0px);
     opacity: 1;
@@ -261,7 +309,8 @@ table {
   .input-box.files {
     border-bottom: 1px solid #38444d;
     border-left: 1px solid #38444d;
-    border-radius: 15px 0 0 15px; }
+    border-radius: 15px 0 0 15px;
+    margin-bottom: 0; }
     .input-box.files + label {
       top: -30px;
       left: 0; }
