@@ -4,6 +4,10 @@ import Leccion from './leccion.js';
 import Historial from './historial.js';
 
 export default class Sistema {
+
+  var alumnoIdLogueado = 0;
+  var profesorIdLogueado = 0;
+
     
     constructor() {
       
@@ -11,6 +15,8 @@ export default class Sistema {
       this.listaAlumnos = new ArrayList();
       this.listaLecciones = new ArrayList();
       this.listaHistorial = new ArrayList();
+
+      datosPrueba();
 
     }
 
@@ -25,16 +31,22 @@ export default class Sistema {
     }
 
 
-     cargarLeccion(nombre, descripcion, imagen, tablatura, autor){
+     cargarLeccion(nombre, descripcion, imagen, tablatura){
 
         alert("leccion cargada");
-        var leccion = new Leccion(nombre,descripcion,imagen,tablatura,autor);
+        var leccion = new Leccion(nombre,descripcion,imagen,tablatura,profesorIdLogueado);
         this.listaLecciones.add(leccion);
 
         
      }
 
 
+     historial(idLeccion){
+
+      var historial = new Historial(idLeccion, alumnoIdLogueado);
+      listahistorial.add(historial);
+
+     }
     
     
 
