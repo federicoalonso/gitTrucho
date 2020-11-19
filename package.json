@@ -4,7 +4,7 @@
   "description": "ob2-ort-fis-obl2-alonso-palma-vera created by GitHub Classroom",
   "main": "index.html",
   "scripts": {
-    "test": "jest",
+    "test": "test",
     "init:sass": "node-sass src/sass/index.scss src/css/stylesConfig.css -w"
   },
   "repository": {
@@ -23,8 +23,5 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
-  },
-  "devDependencies": {
-    "jest": "^26.6.3"
   }
 }
