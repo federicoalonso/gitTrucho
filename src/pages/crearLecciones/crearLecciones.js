@@ -1,4 +1,6 @@
-import Sistema from '../../js/sistema.js';
+const sistema = require('../../js/sistema.js');
+
+//import Sistema from '../../js/sistema.js';
 
 window.addEventListener("load", () => { cargarTabla(0) });
 document.getElementById("btn-crear-leccion").addEventListener("click", mostrarModal);
@@ -6,18 +8,18 @@ document.getElementById("btn-ocultar-modal").addEventListener("click", ocultarMo
 document.getElementById("card").addEventListener("click", function (e) {
     e.stopPropagation();
 });
-document.getElementById("modal").addEventListener("click", ocultarModal);
+document.getElementById("modal-ocultar").addEventListener("click", ocultarModal);
 document.getElementById("btn-guardar").addEventListener("click", guardarLeccion);
 
-const syst = new Sistema();
+const syst = new sistema.Sistema();
 let paginaActual = 0;
 
 function mostrarModal() {
-    document.getElementById("modal").classList.add("visible");
+    document.getElementById("modal-ocultar").classList.add("visible");
 }
 
 function ocultarModal() {
-    document.getElementById("modal").classList.remove("visible");
+    document.getElementById("modal-ocultar").classList.remove("visible");
 }
 
 function guardarLeccion() {
@@ -56,11 +58,11 @@ function cargarCuerpo(pagina) {
                     <td>${syst.listaLecciones[i].nombre}</td>
                     <td>${syst.listaLecciones[i].fecha}</td>
                     <td>
-                        <button><img class="icon" src="../../assets/img/zoom_in-24px.svg"
+                        <button><img class="icon" type="watch" leccion="${syst.listaLecciones[i].id}" src="../../assets/img/zoom_in-24px.svg"
                                 alt="Ver detalles clase ${i}"></button>
-                        <button><img class="icon" src="../../assets/img/create-black-18dp.svg"
+                        <button><img class="icon" type="edit" leccion="${syst.listaLecciones[i].id}" src="../../assets/img/create-black-18dp.svg"
                                 alt="Editar clase ${i}"></button>
-                        <button><img class="icon" src="../../assets/img/delete-24px.svg"
+                        <button><img class="icon" type="delete" leccion="${syst.listaLecciones[i].id}" src="../../assets/img/delete-24px.svg"
                                 alt="Eliminar clase ${i}"></button>
                     </td>
                 </tr>
@@ -121,6 +123,16 @@ function eventosAlPaginador(pagsTotales) {
             cargarConPaginacion(attr, disabled, pagsTotales);
         });
     }
+
+    var btns = document.getElementsByClassName("icon");
+    for (var j = 0; j < btns.length; j++) {
+        btns[j].addEventListener("click", function (e) {
+            e.preventDefault();
+            var attr = this.getAttribute("type");
+            var leccion = this.getAttribute('leccion');
+            accionesLeccion(attr, leccion);
+        });
+    }
 }
 
 function cargarConPaginacion(attr, disabled, pagsTotales) {
@@ -142,4 +154,30 @@ function cargarConPaginacion(attr, disabled, pagsTotales) {
             paginaActual = 0;
         }
     }
+}
+
+function accionesLeccion(attr, leccionId){
+
+    var leccion = traerLeccion(leccionId);
+
+    if (attr === "watch") {
+        console.log('watch')
+        alert('te envia a ver la leccion')
+    }else if(attr === "edit") {
+        document.getElementById("txt-nombre-leccion").value = leccion.nombre; 
+        document.getElementById("txt-tablatura-leccion").value = leccion.tablatura; 
+        document.getElementById("txt-descripcion-leccion").value = leccion.descripcion;
+        document.getElementById("hid-id-leccion").value = leccion.id;
+        mostrarModal();
+    }else{
+        console.log('delete')
+    }
+}
+
+function traerLeccion(id){
+    var iterador = 0;
+    while(iterador < syst.listaLecciones.length && syst.listaLecciones[iterador].id != id){
+        iterador++;
+    }
+    return syst.listaLecciones[iterador];
 }

@@ -39,19 +39,19 @@
                     </table>
                     <div class="paginador" id="paginator">
                         <ul class="pagination">
-                            <li><a href="" class="disabled nav" nav="back">«</a></li>
-                            <li><a href="" class="nav" nav="1">1</a></li>
-                            <li><a class="active nav" nav="2" href="">2</a></li>
-                            <li><a href="" class="nav" nav="3">3</a></li>
-                            <li><a href="" class="nav" nav="4">4</a></li>
-                            <li><a href="" class="nav" nav="foward">»</a></li>
+                            <li><a href="#" class="disabled nav" nav="back">«</a></li>
+                            <li><a href="#" class="nav" nav="1">1</a></li>
+                            <li><a class="active nav" nav="2" href="#">2</a></li>
+                            <li><a href="#" class="nav" nav="3">3</a></li>
+                            <li><a href="#" class="nav" nav="4">4</a></li>
+                            <li><a href="#" class="nav" nav="foward">»</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <div class="contenedor modal" id="modal">
+    <div class="contenedor modal" id="modal-ocultar">
         <div class="card col-12 m-auto" id="card">
             <div class="card-title">
                 <h2>Nueva Lección</h2>
@@ -69,6 +69,7 @@
                     <textarea name="txt-tablatura-leccion" id="txt-tablatura-leccion" required></textarea>
                     <label for="txt-tablatura-leccion">Tablatura de la Lección</label>
                 </div>
+                <input type="hidden" name="hid-id-leccion" id="hid-id-leccion">
             </div>
             <div class="card-footer">
                 <div class="btn-box">
