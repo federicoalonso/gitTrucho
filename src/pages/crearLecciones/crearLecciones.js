@@ -1,8 +1,8 @@
 const sistema = require('../../js/sistema.js');
 
-//import { Sistema } from '../../js/sistema.js';
+//import Sistema from '../../js/sistema.js';
 
-/* window.addEventListener("load", () => { cargarTabla(0) }); */
+window.addEventListener("load", () => { cargarTabla(0) });
 document.getElementById("btn-crear-leccion").addEventListener("click", mostrarModal);
 document.getElementById("btn-ocultar-modal").addEventListener("click", ocultarModal);
 document.getElementById("card").addEventListener("click", function (e) {
@@ -181,5 +181,3 @@ function traerLeccion(id){
     }
     return syst.listaLecciones[iterador];
 }
-
-cargarTabla(0);
