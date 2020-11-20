@@ -2,6 +2,7 @@ import Sistema from '../../js/sistema.js';
 
 window.addEventListener("load", () => { cargarTabla(0) });
 document.getElementById("btn-crear-leccion").addEventListener("click", mostrarModal);
+document.getElementById("cosas").addEventListener("click", alerta);
 document.getElementById("btn-ocultar-modal").addEventListener("click", ocultarModal);
 document.getElementById("card").addEventListener("click", function (e) {
     e.stopPropagation();
@@ -12,6 +13,9 @@ document.getElementById("btn-guardar").addEventListener("click", guardarLeccion)
 const syst = new Sistema();
 let paginaActual = 0;
 
+function alerta(){
+    alert("Hola")
+}
 function mostrarModal() {
     document.getElementById("modal").classList.add("visible");
 }
