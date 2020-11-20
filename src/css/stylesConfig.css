@@ -14,79 +14,14 @@ body {
   text-align: left; }
 
 main {
-  padding-top: 150px; }
-
-.contenedor {
-  height: calc(100vh - 150px);
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr); }
-  .contenedor .col-1 {
-    grid-column: span 1; }
-  .contenedor .col-2 {
-    grid-column: span 2; }
-  .contenedor .col-3 {
-    grid-column: span 3; }
-  .contenedor .col-4 {
-    grid-column: span 4; }
-  .contenedor .col-5 {
-    grid-column: span 5; }
-  .contenedor .col-6 {
-    grid-column: span 6; }
-  .contenedor .col-7 {
-    grid-column: span 7; }
-  .contenedor .col-8 {
-    grid-column: span 8; }
-  .contenedor .col-9 {
-    grid-column: span 9; }
-  .contenedor .col-10 {
-    grid-column: span 10; }
-  .contenedor .col-11 {
-    grid-column: span 11; }
-  .contenedor .col-12 {
-    grid-column: span 12; }
-  .contenedor .cent-horiz {
-    display: grid;
-    justify-content: center; }
-  .contenedor .cent-vert {
-    display: grid;
-    align-items: center; }
+  padding-top: 150px !important;
+  padding-bottom: 75px !important; }
 
 h1 {
   font-family: "Roboto", sans-serif;
   color: #c66f07;
   font-size: 50px;
   font-weight: bold; }
-
-.padd-h-1 {
-  padding: 0 5px; }
-
-.padd-h-2 {
-  padding: 0 10px; }
-
-.padd-h-3 {
-  padding: 0 15px; }
-
-.padd-v-1 {
-  padding: 5px 0; }
-
-.padd-v-2 {
-  padding: 10px 0; }
-
-.padd-v-3 {
-  padding: 15px 0; }
-
-.padd-1 {
-  padding: 5px; }
-
-.padd-2 {
-  padding: 10px; }
-
-.padd-3 {
-  padding: 15px; }
-
-.m-auto {
-  margin: auto; }
 
 ::-webkit-scrollbar {
   width: 8px; }
@@ -153,18 +88,6 @@ button {
     color: whitesmoke; }
   button .success {
     background-color: #22af22; }
-
-.card {
-  background-color: #fff;
-  box-shadow: 2px 2px 8px rgba(97, 97, 97, 0.8);
-  border-radius: 5px; }
-  .card .card-title, .card .card-body {
-    padding: 25px;
-    border-bottom: 1px solid #38444d; }
-  .card .card-title {
-    font-family: "Roboto", sans-serif; }
-  .card .card-footer {
-    padding: 25px; }
 
 table {
   border-radius: 5px;
@@ -405,3 +328,10 @@ table {
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga'; }
+
+.container h1 {
+  text-align: center;
+  margin-top: 75px; }
+
+.container section.row {
+  margin: 25px 0; }

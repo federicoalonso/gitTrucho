@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "test",
-    "init:sass": "node-sass src/sass/index.scss src/css/stylesConfig.css -w"
+    "sass": "node-sass src/sass/index.scss src/css/stylesConfig.css -w"
   },
   "repository": {
     "type": "git",
