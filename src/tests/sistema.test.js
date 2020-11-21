@@ -5,98 +5,22 @@ beforeEach(()=>{
     sis = new sistema.Sistema();
 });
 
+/* =============================== PRUEBAS UNITARIAS DE CREAR CANCION ====================================================== 
 
-test('crear una canción correctamente', () => {
-       
-    var canc = new sistema.cancion.Cancion();
-    expect(sis.crearLeccion('nombre', 'descripción', canc)).toBeTruthy();
-});
+  Una canción tiene:
 
-test('crear una canción sin cancion', () => {
-       
-    var canc = null;
-    
-    expect(sis.crearLeccion('nombre', 'descripción', canc)).toBeFalsy();
-});
-
-test('crear una canción con nombre vacío', () => {
-       
-    var canc = new sistema.cancion.Cancion();
-    
-    expect(sis.crearLeccion('', 'descripción', canc)).toBeFalsy();
-});
-
-test('crear una canción con descripción vacía', () => {
-   
-    
-    var canc = new sistema.cancion.Cancion();
-    
-    expect(sis.crearLeccion('nombre', '', canc)).toBeFalsy();
-});
-
-test('crear una leccion con nombre menos de 5 caracteres', () => {
-   
-    
-    var canc = new sistema.cancion.Cancion();
-    
-    expect(sis.crearLeccion('abcd', 'descripción', canc)).toBeFalsy();
-});
-
-test('crear una leccion con nombre más de 20 caracteres', () => {
-   
-    
-    var canc = new sistema.cancion.Cancion();
-    var nombre = "";
-    
-    for(var i = 1; i<=21 ; i++){
-
-        nombre+="a";
-
-    }
-    
-    expect(sis.crearLeccion(nombre, 'descripción', canc)).toBeFalsy();
-});
+ ** Nombre que NO puede ser vacío y tiene entre 5 y 20 caracteres
+ ** Autor que NO puede ser vacío y tiene entre 5 y 20 caracteres
+ ** Tablatura que NO puede ser vacío y tiene entre 1000 y 5000 caracteres
+ ** Ruta a un archivo de sonido que NO puede ser vacío y como máximo 100 caracteres
 
 
-test('crear una leccion con descripcion menos de 10 caracteres', () => {
-   
-    
-    var canc = new sistema.cancion.Cancion();
-    var descripcion = "";
-    
-    for(var i = 1; i<=9 ; i++){
-
-        descripcion+="a";
-
-    }
-    
-    expect(sis.crearLeccion("nombre", descripcion, canc)).toBeFalsy();
-});
-
-test('crear una leccion con descripcion más de 200 caracteres', () => {
-   
-    
-    var canc = new sistema.cancion.Cancion();
-    var descripcion = "";
-    
-    for(var i = 1; i<=201 ; i++){
-
-        descripcion+="a";
-
-    }
-    
-    expect(sis.crearLeccion("nombre", descripcion, canc)).toBeFalsy();
-});
-
-
-/* FUNCION CREAR CANCION */
+========================================================================================================================= */
 
 test('crear una canción correctamente', () => {
    
-    
-
     var tablatura = "";
-    
+   
     for(var i = 1; i<=1000 ; i++){
 
         tablatura+="a";
@@ -107,10 +31,10 @@ test('crear una canción correctamente', () => {
 });
 
 
-test('crear una canción con nombre menos de 5 caracteres', () => {
-   
-    
+/*================================================ NOMBRE =================================================================== */
 
+test('crear una canción con nombre menos de 5 caracteres', () => {
+  
     var tablatura = "";
     
     for(var i = 1; i<=1000 ; i++){
@@ -124,8 +48,6 @@ test('crear una canción con nombre menos de 5 caracteres', () => {
 
 test('crear una canción con nombre vacío', () => {
    
-    
-
     var tablatura = "";
     
     for(var i = 1; i<=1000 ; i++){
@@ -138,9 +60,7 @@ test('crear una canción con nombre vacío', () => {
 });
 
 test('crear una canción con nombre mayor de 20 caracteres', () => {
-   
-    
-
+  
     var tablatura = "";
     var nombre = "";
     
@@ -159,10 +79,10 @@ test('crear una canción con nombre mayor de 20 caracteres', () => {
     expect(sis.crearCancion(nombre, tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción tablatura menor a 1000 caracteres', () => {
-   
-    
+/*================================================== TABLATURA ============================================================== */
 
+test('crear una canción tablatura menor a 1000 caracteres', () => {
+  
     var tablatura = "";
     
     for(var i = 1; i<=999 ; i++){
@@ -176,33 +96,28 @@ test('crear una canción tablatura menor a 1000 caracteres', () => {
 
 test('crear una canción tablatura mayor a 5000 caracteres', () => {
    
-    
-
     var tablatura = "";
     
-    for(var i = 1; i<=5000 ; i++){
+    for(var i = 1; i<=5001 ; i++){
 
         tablatura+="a";
 
     }
         
-    expect(sis.crearCancion('abcd', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
+    expect(sis.crearCancion('abcde', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
 test('crear una canción tablatura vacía', () => {
    
-    
-
     var tablatura = "";
             
-    expect(sis.crearCancion('abcd', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
+    expect(sis.crearCancion('abcde', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
+/*================================================== AUTOR   ============================================================== */
 
 test('crear una canción con autor menos de 5 caracteres', () => {
    
-    
-
     var tablatura = "";
     
     for(var i = 1; i<=1000 ; i++){
@@ -211,13 +126,11 @@ test('crear una canción con autor menos de 5 caracteres', () => {
 
     }
         
-    expect(sis.crearCancion('nombre', tablatura, 'autor' , 'ruta_sonido')).toBeFalsy();
+    expect(sis.crearCancion('nombre', tablatura, 'auto' , 'ruta_sonido')).toBeFalsy();
 });
 
 test('crear una canción con autor vacío', () => {
-   
-    
-
+  
     var tablatura = "";
     
     for(var i = 1; i<=1000 ; i++){
@@ -231,8 +144,6 @@ test('crear una canción con autor vacío', () => {
 
 test('crear una canción con autor mayor a 20 caracteres', () => {
    
-    
-
     var tablatura = "";
     var autor = "";
     
@@ -251,29 +162,259 @@ test('crear una canción con autor mayor a 20 caracteres', () => {
     expect(sis.crearCancion('nombre', tablatura, '' , 'ruta_sonido')).toBeFalsy();
 });
 
+/*================================================== RUTA_SONIDO============================================================ */
 
-/* Traer Canción */
 
-
-test('traigo una canción inexistente de la lista de canciones del sistema', () => {
-   
-        expect(sis.traerCancion(1)).toBeNull();
-}); 
-
-test('traigo una canción existente de la lista de canciones del sistema', () => {
-       
-
+test('crear una canción con ruta_sonido vacío', () => {
+  
     var tablatura = "";
+    
+    for(var i = 1; i<=1000 ; i++){
+
+        tablatura+="a";
+
+    }
         
+    expect(sis.crearCancion('nombre', tablatura, 'autor' , '')).toBeFalsy();
+});
+
+test('crear una canción con ruta_sonido mayor a 100 caracteres', () => {
+   
+    var tablatura = "";
+    var ruta_sonido = "";
+    
     for(var i = 1; i<=1000 ; i++){
 
         tablatura+="a";
 
     }
 
-    sis.crearCancion('nombre', tablatura, "autor1", "ruta_sonido");
+    for(var j = 1; i<=101 ; i++){
+
+        ruta_sonido+="a";
+
+    }
+        
+    expect(sis.crearCancion('nombre', tablatura, 'autor1' , ruta_sonido)).toBeFalsy();
+});
+
+
+
+/* =============================== PRUEBAS UNITARIAS DE CREAR LECCIÓN ====================================================== 
+
+  Una lección tiene:
+
+ ** Nombre que NO puede ser vacío y tiene entre 5 y 20 caracteres
+ ** Descripción Corta que NO puede ser vacío y tiene entre 10 y 200 caracteres
+ ** Descripción Larga que NO puede ser vacío y tiene entre 10 y 2000 caracteres
+ ** Una Canción que NO null
+ ** Ruta a un archivo de imagen que NO puede ser vacío y como máximo 100 caracteres
+
+
+========================================================================================================================= */
+
+
+
+test('crear una lección correctamente', () => {
+       
+    var canc = new sistema.cancion.Cancion();
+
+    expect(sis.crearLeccion('nombre', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeTruthy();
+});
+
+
+/*================================================== CANCION ============================================================ */
+
+test('crear una lección sin cancion', () => {
+       
+    var canc = null;
     
-    expect(sis.traerCancion(0)).toBeNull();
+    expect(sis.crearLeccion('nombre', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+/*================================================== NOMBRE ============================================================ */
+
+test('crear una lección con nombre vacío', () => {
+       
+    var canc = new sistema.cancion.Cancion();
+    
+    expect(sis.crearLeccion('', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+test('crear una leccion con nombre menos de 5 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    
+    expect(sis.crearLeccion('abcd', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+test('crear una leccion con nombre más de 20 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var nombre = "";
+    
+    for(var i = 1; i<=21 ; i++){
+
+        nombre+="a";
+
+    }
+    
+    expect(sis.crearLeccion(nombre, 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+/*================================================== DESCRIPCION CORTA ============================================================ */
+
+test('crear una lección con descripción corta vacía', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    
+    expect(sis.crearLeccion("nombre", '', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+
+
+
+test('crear una leccion con descripcion corta menos de 10 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var descripcion = "";
+    
+    for(var i = 1; i<=9 ; i++){
+
+        descripcion+="a";
+
+    }
+    
+    expect(sis.crearLeccion("nombre", '123456789', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+test('crear una leccion con descripcion corta más de 200 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var descripcionCorta = "";
+    
+    for(var i = 1; i<=201 ; i++){
+
+        descripcionCorta+="a";
+
+    }
+    
+    expect(sis.crearLeccion("nombre", descripcionCorta , canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
+});
+
+
+/*================================================== DESCRIPCION LARGA ============================================================ */
+
+test('crear una lección con descripción LARGA vacía', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    
+    expect(sis.crearLeccion("nombre", 'descripción corta', canc, "ruta_imagen", "")).toBeFalsy();
+});
+
+
+
+
+test('crear una leccion con descripcion larga menos de 10 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var descripcionLarga = "";
+    
+    for(var i = 1; i<=9 ; i++){
+
+        descripcionLarga+="a";
+
+    }
+    
+    expect(sis.crearLeccion("nombre", 'descripción corta', canc, "ruta_imagen", descripcionLarga)).toBeFalsy();
+});
+
+test('crear una leccion con descripcion larga más de 2000 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var descripcionLarga = "";
+    
+    for(var i = 1; i<=2001 ; i++){
+
+        descripcionLarga+="a";
+
+    }
+    
+    expect(sis.crearLeccion("nombre", 'descripción corta', canc, "ruta_imagen", descripcionLarga)).toBeFalsy();
+});
+
+/*================================================== RUTA_FOTO ============================================================ */
+
+test('crear una lección con ruta_imagen vacía', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    
+    expect(sis.crearLeccion("nombre", 'descripción corta', canc, "", "descripcionLarga")).toBeFalsy();
+});
+
+
+test('crear una leccion con ruta_imagen con largo más de 100 caracteres', () => {
+   
+    
+    var canc = new sistema.cancion.Cancion();
+    var ruta_imagen = "";
+    
+    for(var i = 1; i<=101 ; i++){
+
+        ruta_imagen+="a";
+
+    }
+   
+    
+    expect(sis.crearLeccion("nombre", 'descripción corta', canc, ruta_imagen , "descripcionLarga")).toBeFalsy();
+});
+
+
+
+/* =============================== PRUEBAS UNITARIAS TRAER CANCIÓN ====================================================== 
+
+ Las canciones se guardan en una lista de canciones en la clase sistema
+ Las canciones tienen un atributo que las identifica que es el id
+ En estas pruebas vamos a probar buscar una canciónes en la lista de canciones.
+
+========================================================================================================================= */
+
+
+
+test('traer una canción que no existe', () => {
+    
+    var idCancion = 100;
+    
+    expect(sis.traerCancion(idCancion)).not.toBeDefined();
+
+});
+
+
+test('traer una canción que existe', () => {
+    
+    //PRIMERO CREO LA CANCION
+
+    var tablatura = "";
+    for(var i = 1; i<=1000 ; i++){
+        tablatura+="a";
+    }
+
+    var idCancion = 1;
+
+    sis.crearCancion('nombre', tablatura, 'autor1' , 'ruta_sonido');
+       
+    expect(sis.traerCancion(idCancion)).toBeDefined();
+
+    
 });
 
 

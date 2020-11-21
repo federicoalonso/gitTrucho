@@ -1,86 +1,102 @@
 const cancion = require('./cancion.js');
 const leccion = require('./leccion.js');
-
+var autoIdLeccion = 0;
+var autoIdCancion = 0; 
 
 class Sistema {
 
+  
 
   constructor() {
-
+    
     this.listaLecciones = [];
-    this.listaCanciones = [];
-    var autoIdLeccion = 0;
-    var autoIdCancion = 0;
-
-
+    this.listaCanciones= [];
+      
   }
 
   datosPrueba() {
 
-
+  
   }
 
-  crearLeccion(nombre, descripcion, cancion) {
+  crearLeccion(nombre, descripCorta, cancion, ruta_imagen, descripLarga) {
 
     var retorno = true;
 
-    if (nombre == "" || descripcion == "" || cancion == null) {
-      retorno = false;
+    if(nombre == "" || descripCorta == "" || cancion == null || ruta_imagen == "" || descripLarga == "") {
+       retorno = false;
     }
-    else if (nombre.length <= 5 || nombre.length > 20 ||
-      descripcion.length <= 10 || descripcion.length > 200) {
-      retorno = false;
-    }
-    else {
-      var unaLeccion = new leccion.Leccion(this.autoIdLeccion, nombre, descripcion, cancion);
-      this.listaLecciones.push(unaLeccion);
-      this.autoIdLeccion++;
-    }
+    else if (nombre.length < 5 || nombre.length >20 || ruta_imagen.length > 100 ||
+             descripCorta.length < 10 || descripCorta.length >200 ||
+             descripLarga.length < 10 || descripLarga.length >2000)
+             
+            {
 
+                retorno = false;
+            }
+    else {
+          var unaLeccion = new leccion.Leccion(autoIdLeccion, nombre, descripCorta, cancion, ruta_imagen, descripLarga);
+          this.listaLecciones.push(unaLeccion);
+          autoIdLeccion++;
+    }
+   
     return retorno;
 
   }
 
 
-  crearCancion(nombre, tablatura, autor, sonido) {
+  crearCancion(nombre, tablatura, autor, ruta_sonido){
 
     var retorno = true;
-
-    if (nombre == "" || tablatura == "" || autor == "") {
-      retorno = false;
+    
+    if(nombre == "" || tablatura == "" || autor == "" || ruta_sonido == "") {
+       retorno = false;
+   
     }
-    else if (nombre.length <= 5 || nombre.length > 20 ||
-      tablatura.length < 1000 || tablatura.length > 5000 ||
-      autor.length <= 5 || autor.length > 20) {
+    else if (nombre.length < 5 || nombre.length >20 ||
+             tablatura.length < 1000 || tablatura.length >5000 ||
+             autor.length < 5 || autor.length >20 || ruta_sonido > 100)
+        
+         {
+      
+             retorno = false;
+           
 
-      retorno = false;
-    }
+
+         }
     else {
-      var unaCancion = new cancion.Cancion(this.autoIdCancion, nombre, tablatura, autor, sonido);
-      this.listaCanciones.push(unaCancion);
-      this.autoIdCancion++;
+          var unaCancion = new cancion.Cancion(autoIdCancion , nombre, tablatura, autor, ruta_sonido);
+          this.listaCanciones.push(unaCancion);
+          autoIdCancion++;
     }
-
+   
     return retorno;
 
 
   }
 
-  traerCancion(ids) {
+  traerCancion(id){
 
-    var retorno = null;
     var iter = 0;
-    while (retorno == null && iter < this.listaCanciones.length) {
+    var retorno;
 
-      if (ids == this.listaCanciones[iter].id) {
+    while(iter < this.listaCanciones.length && retorno == undefined) {
+
+      if(this.listaCanciones[iter].id == id) {
+
         retorno = this.listaCanciones[iter];
+
       }
       iter++;
     }
     return retorno;
+ 
   }
 
+
 }
+
+
 
 module.exports = {
   Sistema: Sistema,

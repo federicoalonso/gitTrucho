@@ -1,20 +1,19 @@
 const cancion = require('./cancion.js');
 
-var autoIdLeccion = 0;
-
 class Leccion {
 
-  constructor(nombre, descripcion, cancion) {
+  constructor(autoIdLeccion, nombre, descripcion, cancion, ruta_imagen , desLeccion) {
 
     var d = new Date();
     
     this.id = autoIdLeccion;
     this.nombre = nombre;
-    this.descripcion = descripcion;
+    this.desLeccion = descripcion;
+    this.desLeccion = desLeccion;
     this.fecha = d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear();
     this.cancion = cancion;
-    
-    autoIdLeccion++;
+    this.ruta_imagen = ruta_imagen;
+   
 
   }
 }
