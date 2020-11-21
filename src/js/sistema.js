@@ -34,7 +34,7 @@ export default class Sistema {
         Estudiamos los fundamentos básicos del ritmo, aprendiendo a interiorizarlo y desarrollando la habilidad de ser capaz de sacar cualquier ritmo con escucharlo. Este curso lo dividimos en dos partes, en la primera aprenderemos toda la teoría, pero de manera práctica, desarrollando la técnica básica del ritmo. Después aprenderás 50 ritmos de manera progresiva, con ejemplos prácticos al estilo de canciones y progresiones muy conocidas de lo mejor de la música. Puedes descargar los PDF de cada lección además de todas las pistas de práctica.
       `;
       ((i%2)==0) ? ruta += "1.jpg" : ruta += "2.jpg";
-      var leccion = new Leccion(autoIdLeccion, nombre, descripcion, cancion, ruta,);
+      var leccion = new Leccion(autoIdLeccion, nombre, descripcion, cancion, ruta, desLeccion);
       this.listaLecciones.push(leccion);
       autoIdLeccion++;
     }

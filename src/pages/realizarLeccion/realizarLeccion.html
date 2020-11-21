@@ -20,82 +20,22 @@
         </ul>
     </nav>
     <main class="container pt-5">
-        <h1>Nombre de la lección<small>15/20/20</small></h1>
+        <h1 id="titulo"></h1>
         <section class="row">
             <div class="card col-12">
                 <card-title>
-                    <h2>Canción para niño equis <small>Autor Alguno</small></h2>
+                    <h2 id="nombreCancion"></h2>
                 </card-title>
                 <card-body>
                     <h3>Descripción</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ad animi facere, quidem quia nesciunt qui iusto id at suscipit nisi ex odio explicabo tempore amet cumque, quis dolorum ipsum.
-                    Nemo hic modi, explicabo iste vitae sequi officiis delectus molestias, dolorum repellat tempora eos libero aut, ullam accusantium iure? Facere iure unde sit velit cum vel magnam asperiores suscipit provident.
-                    Officia fugit cum, ullam illum impedit veritatis, placeat facere ab provident non possimus accusamus reprehenderit dignissimos nemo laudantium nulla doloribus obcaecati distinctio perspiciatis. Nemo fugiat libero omnis voluptatum dolorum hic.
-                    Rem perferendis eligendi cumque laboriosam temporibus vitae sit, animi eum doloremque, tempore, sed necessitatibus alias dolor quae officiis. Velit tempora nostrum impedit quo reiciendis maxime aliquid beatae doloribus eos consectetur.</p>
+                    <p id="descripcion"></p>
                     <h3>Música</h3>
-                    <audio controls>
-                        <source src="../../../server-side/sound/cancion1.mp3" type="audio/mp3">
-                        Tu navegador no soporta audio HTML5.
+                    <audio controls id="audio">
                     </audio>
                     <hr>
-                    <p>
-                    <pre>Dormido est&aacute; el le&oacute;n - Tim&oacute;n y Pumba
-
-(S&oacute;lo voz)
-Di ri di ri di diri diri di di om owim mow&eacute;
-Di ri di ri di diri diri di di om owim mow&eacute;
-                            
-ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>                    <a>C</a>
-Owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute;,</pre>
-                    <pre><a>G</a>                    <a>D</a>
-owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute; (bis)</pre>
-                    <pre><a>G</a>                 <a>C</a>
-En la jungla, la negra jungla,</pre>
-                    <pre>    <a>G</a>             <a>D</a>
-dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>                <a>C</a>
-En la jungla, calmada jungla,</pre>
-                    <pre>   <a>G</a>              <a>D</a>
-Dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-Diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>                 <a>C</a>
-En la aldea, tranquila aldea</pre>
-                    <pre>    <a>G</a>             <a>D</a>
-Dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>               <a>C</a>
-En la aldea, paciente aldea,</pre>
-                    <pre>    <a>G</a>             <a>D</a>
-Dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-Diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>                    <a>C</a>
-Owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute;,</pre>
-                    <pre><a>G</a>                    <a>D</a>
-owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute;</pre>
-                    <pre><a>G</a>               <a>C</a>
-Calma ni&ntilde;o, mi dulce ni&ntilde;o</pre>
-                    <pre>    <a>G</a>              <a>D</a>
-Dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>               <a>C</a>
-Calma ni&ntilde;o, mi dulce ni&ntilde;o</pre>
-                    <pre>    <a>G</a>              <a>D</a>
-Dormido est&aacute; el le&oacute;n</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-Diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>       <a>C</a>        <a>G</a>            <a>D</a>
-diiii ri di ri di om owim mow&eacute;</pre>
-                    <pre><a>G</a>                    <a>C</a>
-Owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute;,</pre>
-                    <pre><a>G</a>                    <a>D</a>
-owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute; (repite ad lib)</pre>
-                    <p><strong>&nbsp;</strong></p>
-                    </p>
+                    <div id="tablatura"></div>
+                    <hr>
+                    <div id="desLeccion"></div>
                 </card-body>
             </div>
         </section>
@@ -108,6 +48,7 @@ owim mow&eacute;, owim mow&eacute;, owim mow&eacute;, owim mow&eacute; (repite a
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <script src="./realizarLeccion.js"></script>
+    <script type="module" src="./realizarLeccionApp.js"></script>
 </body>
 
 </html>
