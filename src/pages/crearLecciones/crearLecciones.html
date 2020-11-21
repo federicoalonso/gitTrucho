@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <title>Crear Lecciones</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="../../css/stylesConfig.css">
 </head>
 
@@ -14,71 +18,97 @@
         <img class="logo" src="../../assets/img/logo.png" height="100px">
         <ul>
             <li><a href="../../../inicio.html">Inicio</a></li>
-            <li><a href="../../../verLecciones.html">Ver Lecciones</a></li>
-            <li><a class="active" href="crearLecciones.html">Crear Lecciones</a></li>
+            <li><a href="../verLecciones/verLecciones.html">Ver Lecciones</a></li>
+            <li><a class="active" href="#">Crear Lecciones</a></li>
         </ul>
     </nav>
-    <main class="contenedor">
-        <h1 class="col-12 cent-horiz" id="cosas">Crear Lecciones</h1>
-        <section class="contenedor col-12">
-            <div class="card m-auto col-12">
-                <div class="card-title">
-                    <button class="primary" id="btn-crear-leccion">Crear Lección</button>
+    <main class="container">
+        <h1 class="mt-0">Crear Lecciones</h1>
+        <form class="card p-5 col-10 m-auto">
+            <div style="border-top: 1px solid black;border-bottom: 1px solid black;" class="p-3">
+                <h2>Sección de Canción:</h2>
+                <div>
+                    <h3>Seleccione una canción:</h3>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Canciones</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fecha de creación</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-body" id="tablaLecciones">
-                        </tbody>
-                    </table>
-                    <div class="paginador" id="paginator">
-                        <ul class="pagination">
-                            <li><a href="" class="disabled nav" nav="back">«</a></li>
-                            <li><a href="" class="nav" nav="1">1</a></li>
-                            <li><a class="active nav" nav="2" href="">2</a></li>
-                            <li><a href="" class="nav" nav="3">3</a></li>
-                            <li><a href="" class="nav" nav="4">4</a></li>
-                            <li><a href="" class="nav" nav="foward">»</a></li>
-                        </ul>
+                <hr>
+                <h2>Crear una Canción:</h2>
+                <div>
+                    <h3>Seleccione una canción:</h3>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Nombre</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Autor</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sonido</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01">Seleccione el Archivo</label>
+                        </div>
+                    </div>
+                    <div><label >Cargue la Tablatura</label></div>
+                    <!-- /.card-header -->
+                    <div class="pad">
+                        <div class="mb-3">
+                            <textarea class="textarea" name="descripcion" placeholder="Place some text here"
+                                style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div style="border-top: 1px solid black;border-bottom: 1px solid black;" class="p-3">
+                <h2>Cree la lección:</h2>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descripcion</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Imágen</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                        <label class="custom-file-label" for="inputGroupFile01">Seleccione el Archivo</label>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div><label >Cree la lección</label></div>
+                <div class="pad">
+                    <div class="mb-3">
+                        <textarea class="textarea" name="descripcion" placeholder="Place some text here"
+                            style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-lg btn-block btn-outline-dark mt-2">Guardar</button>
+        </form>
     </main>
-    <div class="contenedor modal" id="modal">
-        <div class="card col-12 m-auto" id="card">
-            <div class="card-title">
-                <h2>Nueva Lección</h2>
-            </div>
-            <div class="card-body">
-                <div class="input-box">
-                    <input type="text" name="txt-nombre-leccion" id="txt-nombre-leccion" required>
-                    <label for="txt-nombre-leccion">Nombre de la Lección</label>
-                </div>
-                <div class="input-box textarea">
-                    <textarea name="txt-descripcion-leccion" id="txt-descripcion-leccion" required></textarea>
-                    <label for="txt-descripcion-leccion">Descripción de la Lección</label>
-                </div>
-                <div class="input-box textarea">
-                    <textarea name="txt-tablatura-leccion" id="txt-tablatura-leccion" required></textarea>
-                    <label for="txt-tablatura-leccion">Tablatura de la Lección</label>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="btn-box">
-                    <button class="btn" id="btn-ocultar-modal">Cancelar</button>
-                    <div class="or"></div>
-                    <button class="btn btn-confirm" id="btn-guardar">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
     <script type="module" src="./crearLecciones.js"></script>
 </body>
 
