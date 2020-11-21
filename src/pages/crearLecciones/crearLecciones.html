@@ -30,13 +30,8 @@
                 <div>
                     <h3>Seleccione una canción:</h3>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Canciones</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label for="sel-canciones">Canciones</label>
+                        <select class="form-control" id="sel-canciones">
                         </select>
                     </div>
                 </div>
@@ -45,27 +40,27 @@
                 <div>
                     <h3>Seleccione una canción:</h3>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Nombre</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        <label for="txt-nombre-cancion">Nombre de la Canción</label>
+                        <input type="text" class="form-control" id="txt-nombre-cancion" placeholder="Nombre de la canción">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Autor</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        <label for="txt-autor">Autor</label>
+                        <input type="text" class="form-control" id="txt-autor" placeholder="Autor de la Canción">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Sonido</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01">
-                            <label class="custom-file-label" for="inputGroupFile01">Seleccione el Archivo</label>
+                            <input type="file" class="custom-file-input" id="imp-sonido">
+                            <label class="custom-file-label" id="lbl-sonido" for="imp-sonido">Seleccione el Archivo .mp3</label>
                         </div>
                     </div>
                     <div><label >Cargue la Tablatura</label></div>
                     <!-- /.card-header -->
                     <div class="pad">
                         <div class="mb-3">
-                            <textarea class="textarea" name="descripcion" placeholder="Place some text here"
+                            <textarea class="textarea" id="txt-tablatura" placeholder="Place some text here"
                                 style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                         </div>
                     </div>
@@ -74,32 +69,32 @@
             <div style="border-top: 1px solid black;border-bottom: 1px solid black;" class="p-3">
                 <h2>Cree la lección:</h2>
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Nombre</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    <label for="txt-nombre-leccion">Nombre de la Lección</label>
+                    <input type="text" class="form-control" id="txt-nombre-leccion" placeholder="Nombre de la Lección">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Descripcion</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="txt-descripcion-leccion">Descripción</label>
+                    <textarea class="form-control" id="txt-descripcion-leccion" rows="3"></textarea>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Imágen</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01">
-                        <label class="custom-file-label" for="inputGroupFile01">Seleccione el Archivo</label>
+                        <input type="file" class="custom-file-input" id="fil-imagen">
+                        <label class="custom-file-label" id="lbl-fil-imagen" for="fil-imagen">Seleccione el Archivo .png o .jpg</label>
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div><label >Cree la lección</label></div>
                 <div class="pad">
                     <div class="mb-3">
-                        <textarea class="textarea" name="descripcion" placeholder="Place some text here"
+                        <textarea class="textarea" id="txt-leccion" placeholder="Texto para la lección"
                             style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary btn-lg btn-block btn-outline-dark mt-2">Guardar</button>
+            <button type="submit" id="btn-guardar" class="btn btn-secondary btn-lg btn-block btn-outline-dark mt-2">Guardar</button>
         </form>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -109,7 +104,8 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
-    <script type="module" src="./crearLecciones.js"></script>
+    <script src="./crearLecciones.js"></script>
+    <script type="module" src="./crearLeccionesApp.js"></script>
 </body>
 
 </html>

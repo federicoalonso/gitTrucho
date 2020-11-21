@@ -1,17 +1,22 @@
-export default class Leccion {
+const cancion = require('./cancion.js');
 
-  constructor(autoIdLeccion, nombre, descripcion, cancion, ruta_imagen , desLeccion) {
+var autoIdLeccion = 0;
+
+class Leccion {
+
+  constructor(nombre, descripcion, cancion) {
 
     var d = new Date();
     
     this.id = autoIdLeccion;
     this.nombre = nombre;
     this.descripcion = descripcion;
-    this.desLeccion = desLeccion;
     this.fecha = d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear();
     this.cancion = cancion;
-    this.ruta_imagen = ruta_imagen;
-   
+    
+    autoIdLeccion++;
 
   }
 }
+
+module.exports.Leccion = Leccion;
