@@ -302,6 +302,9 @@ table {
       max-height: 500px;
       opacity: 1; }
 
+.not {
+  display: none; }
+
 .container h1 {
   text-align: center;
   margin-top: 75px; }

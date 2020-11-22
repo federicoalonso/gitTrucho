@@ -27,10 +27,16 @@ function cargarLeccionYCancion(){
     var tablatura = document.getElementById("txt-tablatura").value;
     var autor = document.getElementById("txt-autor").value;
     var sonido = document.getElementById("imp-sonido").value;
-
+    var seleccionarCancion = document.getElementById("btn-togleVisible").classList.contains("derecha");
     //me fijo si elige una cancion existente
-    if(cancion != -1){
-        crearClase(cancion);
+    if(seleccionarCancion){
+        if(cancion == -1){
+            alert("Seleccione una canción");
+            document.getElementById("val-sel-canciones").classList.remove("not");
+            document.getElementById("sel-canciones").classList.add("is-invalid");
+        }else{
+            crearClase(cancion);
+        }
     }else{
         if(nombre && autor && sonido && tablatura){
             var laCancion = sis.crearCancion(nombre, tablatura, autor, sonido);
