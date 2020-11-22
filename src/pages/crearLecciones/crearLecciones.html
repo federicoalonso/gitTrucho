@@ -27,7 +27,7 @@
         <form class="card p-5 col-10 m-auto">
             <div style="border-top: 1px solid black;border-bottom: 1px solid black;" class="p-3">
                 <h2>Sección de Canción:</h2>
-                <button class="btn btn-outline-success btn-sm derecha" id="btn-togleVisible">Crear Nueva
+                <button class="btn btn-outline-success btn-sm" id="btn-togleVisible">Crear Nueva
                     Canción</button>
                 <div class="selCancion">
                     <div class="ladoIzquierdo visible" id="lado-izquierdo">
@@ -47,10 +47,16 @@
                             <label for="txt-nombre-cancion">Nombre de la Canción</label>
                             <input type="text" class="form-control" id="txt-nombre-cancion"
                                 placeholder="Nombre de la canción">
+                            <div id="val-txt-nombre-cancion" class="invalid-feedback not">
+                                * Introduzca un nombre entre 5 y 20 caracteres.
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="txt-autor">Autor</label>
                             <input type="text" class="form-control" id="txt-autor" placeholder="Autor de la Canción">
+                            <div id="val-txt-autor" class="invalid-feedback not">
+                                * Introduzca un autor entre 5 y 20 caracteres.
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -60,6 +66,9 @@
                                 <input type="file" class="custom-file-input" id="imp-sonido">
                                 <label class="custom-file-label" id="lbl-sonido" for="imp-sonido">Seleccione el Archivo
                                     .mp3</label>
+                                <div id="val-imp-sonido" class="invalid-feedback not">
+                                    * Seleccione un archivo de sonido.
+                                </div>
                             </div>
                         </div>
                         <div><label>Cargue la Tablatura</label></div>
@@ -78,10 +87,16 @@
                 <div class="form-group">
                     <label for="txt-nombre-leccion">Nombre de la Lección</label>
                     <input type="text" class="form-control" id="txt-nombre-leccion" placeholder="Nombre de la Lección">
+                    <div id="val-txt-nombre-leccion" class="invalid-feedback not">
+                        * Introduzca un nombre entre 5 y 20 caracteres.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="txt-descripcion-leccion">Descripción</label>
                     <textarea class="form-control" id="txt-descripcion-leccion" rows="3"></textarea>
+                    <div id="val-txt-descripcion-leccion" class="invalid-feedback not">
+                        * Introduzca una descripción corta entre 10 y 250 caracteres.
+                    </div>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -105,6 +120,10 @@
             <button type="submit" id="btn-guardar"
                 class="btn btn-secondary btn-lg btn-block btn-outline-dark mt-2">Guardar</button>
         </form>
+        <div class="toastAlert" id="cont-alerta">
+            <div id="alerta" class="alert">
+            </div>
+        </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
