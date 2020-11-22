@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1606004726666" clover="3.2.0">
-  <project timestamp="1606004726666" name="All files">
+<coverage generated="1606005018697" clover="3.2.0">
+  <project timestamp="1606005018697" name="All files">
     <metrics statements="61" coveredstatements="61" conditionals="37" coveredconditionals="36" methods="8" coveredmethods="8" elements="106" coveredelements="105" complexity="0" loc="61" ncloc="61" packages="1" files="3" classes="3"/>
-    <file name="cancion.js" path="C:\Users\Usuario\Desktop\gitTrucho\src\tests\cancion.js">
+    <file name="cancion.js" path="C:\Users\Usuario\Desktop\ob2-ort-fis-obl2-alonso-palma-vera\src\tests\cancion.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="5" count="24" type="stmt"/>
       <line num="6" count="24" type="stmt"/>
@@ -11,7 +11,7 @@
       <line num="9" count="24" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
     </file>
-    <file name="leccion.js" path="C:\Users\Usuario\Desktop\gitTrucho\src\tests\leccion.js">
+    <file name="leccion.js" path="C:\Users\Usuario\Desktop\ob2-ort-fis-obl2-alonso-palma-vera\src\tests\leccion.js">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="5" count="11" type="stmt"/>
       <line num="7" count="11" type="stmt"/>
@@ -23,7 +23,7 @@
       <line num="13" count="11" type="stmt"/>
       <line num="19" count="1" type="stmt"/>
     </file>
-    <file name="sistema.js" path="C:\Users\Usuario\Desktop\gitTrucho\src\tests\sistema.js">
+    <file name="sistema.js" path="C:\Users\Usuario\Desktop\ob2-ort-fis-obl2-alonso-palma-vera\src\tests\sistema.js">
       <metrics statements="46" coveredstatements="46" conditionals="37" coveredconditionals="36" methods="6" coveredmethods="6"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
