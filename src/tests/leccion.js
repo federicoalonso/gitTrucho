@@ -1,5 +1,3 @@
-const cancion = require('./cancion.js');
-
 class Leccion {
 
   constructor(autoIdLeccion, nombre, descripcion, cancion, ruta_imagen , desLeccion) {

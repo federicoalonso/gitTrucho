@@ -1,4 +1,3 @@
-
 class Cancion {
 
   constructor(autoIdCancion, nombre, tablatura, autor , ruta_sonido) {
@@ -12,5 +11,4 @@ class Cancion {
     
   }
 }
-
 module.exports.Cancion = Cancion;

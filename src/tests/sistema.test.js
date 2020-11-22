@@ -33,7 +33,7 @@ test('crear una canción correctamente', () => {
 
 /*================================================ NOMBRE =================================================================== */
 
-test('crear una canción con nombre menos de 5 caracteres', () => {
+test('no se puede crear una canción con nombre menos de 5 caracteres', () => {
   
     var tablatura = "";
     
@@ -46,7 +46,7 @@ test('crear una canción con nombre menos de 5 caracteres', () => {
     expect(sis.crearCancion('abcd', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción con nombre vacío', () => {
+test('no se puede crear una canción con nombre vacío', () => {
    
     var tablatura = "";
     
@@ -59,7 +59,7 @@ test('crear una canción con nombre vacío', () => {
     expect(sis.crearCancion('', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción con nombre mayor de 20 caracteres', () => {
+test('no se puede crear una canción con nombre mayor de 20 caracteres', () => {
   
     var tablatura = "";
     var nombre = "";
@@ -81,7 +81,7 @@ test('crear una canción con nombre mayor de 20 caracteres', () => {
 
 /*================================================== TABLATURA ============================================================== */
 
-test('crear una canción tablatura menor a 1000 caracteres', () => {
+test('no se puede crear una canción tablatura menor a 1000 caracteres', () => {
   
     var tablatura = "";
     
@@ -94,7 +94,7 @@ test('crear una canción tablatura menor a 1000 caracteres', () => {
     expect(sis.crearCancion('abcd', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción tablatura mayor a 5000 caracteres', () => {
+test('no se puede crear una canción tablatura mayor a 5000 caracteres', () => {
    
     var tablatura = "";
     
@@ -107,7 +107,7 @@ test('crear una canción tablatura mayor a 5000 caracteres', () => {
     expect(sis.crearCancion('abcde', tablatura, 'autor1' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción tablatura vacía', () => {
+test('no se puede crear una canción tablatura vacía', () => {
    
     var tablatura = "";
             
@@ -116,7 +116,7 @@ test('crear una canción tablatura vacía', () => {
 
 /*================================================== AUTOR   ============================================================== */
 
-test('crear una canción con autor menos de 5 caracteres', () => {
+test('no se puede crear una canción con autor menos de 5 caracteres', () => {
    
     var tablatura = "";
     
@@ -129,7 +129,7 @@ test('crear una canción con autor menos de 5 caracteres', () => {
     expect(sis.crearCancion('nombre', tablatura, 'auto' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción con autor vacío', () => {
+test('no se puede crear una canción con autor vacío', () => {
   
     var tablatura = "";
     
@@ -142,7 +142,7 @@ test('crear una canción con autor vacío', () => {
     expect(sis.crearCancion('nombre', tablatura, '' , 'ruta_sonido')).toBeFalsy();
 });
 
-test('crear una canción con autor mayor a 20 caracteres', () => {
+test('no se puede crear una canción con autor mayor a 20 caracteres', () => {
    
     var tablatura = "";
     var autor = "";
@@ -165,7 +165,7 @@ test('crear una canción con autor mayor a 20 caracteres', () => {
 /*================================================== RUTA_SONIDO============================================================ */
 
 
-test('crear una canción con ruta_sonido vacío', () => {
+test('no se puede crear una canción con ruta_sonido vacío', () => {
   
     var tablatura = "";
     
@@ -178,7 +178,7 @@ test('crear una canción con ruta_sonido vacío', () => {
     expect(sis.crearCancion('nombre', tablatura, 'autor' , '')).toBeFalsy();
 });
 
-test('crear una canción con ruta_sonido mayor a 100 caracteres', () => {
+test('no se puede crear una canción con ruta_sonido mayor a 100 caracteres', () => {
    
     var tablatura = "";
     var ruta_sonido = "";
@@ -205,7 +205,7 @@ test('crear una canción con ruta_sonido mayor a 100 caracteres', () => {
   Una lección tiene:
 
  ** Nombre que NO puede ser vacío y tiene entre 5 y 20 caracteres
- ** Descripción Corta que NO puede ser vacío y tiene entre 10 y 200 caracteres
+ ** Descripción Corta que NO puede ser vacío y tiene entre 10 y 250 caracteres
  ** Descripción Larga que NO puede ser vacío y tiene entre 10 y 2000 caracteres
  ** Una Canción que NO null
  ** Ruta a un archivo de imagen que NO puede ser vacío y como máximo 100 caracteres
@@ -225,7 +225,7 @@ test('crear una lección correctamente', () => {
 
 /*================================================== CANCION ============================================================ */
 
-test('crear una lección sin cancion', () => {
+test('no se puede crear una lección sin cancion', () => {
        
     var canc = null;
     
@@ -234,14 +234,14 @@ test('crear una lección sin cancion', () => {
 
 /*================================================== NOMBRE ============================================================ */
 
-test('crear una lección con nombre vacío', () => {
+test('no se puede crear una lección con nombre vacío', () => {
        
     var canc = new sistema.cancion.Cancion();
     
     expect(sis.crearLeccion('', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
 });
 
-test('crear una leccion con nombre menos de 5 caracteres', () => {
+test('no se puede crear una leccion con nombre menos de 5 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -249,7 +249,7 @@ test('crear una leccion con nombre menos de 5 caracteres', () => {
     expect(sis.crearLeccion('abcd', 'descripciónCorta', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
 });
 
-test('crear una leccion con nombre más de 20 caracteres', () => {
+test('no se puede crear una leccion con nombre más de 20 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -266,7 +266,7 @@ test('crear una leccion con nombre más de 20 caracteres', () => {
 
 /*================================================== DESCRIPCION CORTA ============================================================ */
 
-test('crear una lección con descripción corta vacía', () => {
+test('no se puede crear una lección con descripción corta vacía', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -277,7 +277,7 @@ test('crear una lección con descripción corta vacía', () => {
 
 
 
-test('crear una leccion con descripcion corta menos de 10 caracteres', () => {
+test('no se puede crear una leccion con descripcion corta menos de 10 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -292,13 +292,13 @@ test('crear una leccion con descripcion corta menos de 10 caracteres', () => {
     expect(sis.crearLeccion("nombre", '123456789', canc, "ruta_imagen", "descripcionLarga")).toBeFalsy();
 });
 
-test('crear una leccion con descripcion corta más de 200 caracteres', () => {
+test('no se puede crear una leccion con descripcion corta más de 250 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
     var descripcionCorta = "";
     
-    for(var i = 1; i<=201 ; i++){
+    for(var i = 1; i<=251 ; i++){
 
         descripcionCorta+="a";
 
@@ -310,7 +310,7 @@ test('crear una leccion con descripcion corta más de 200 caracteres', () => {
 
 /*================================================== DESCRIPCION LARGA ============================================================ */
 
-test('crear una lección con descripción LARGA vacía', () => {
+test('no se puede crear una lección con descripción LARGA vacía', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -321,7 +321,7 @@ test('crear una lección con descripción LARGA vacía', () => {
 
 
 
-test('crear una leccion con descripcion larga menos de 10 caracteres', () => {
+test('no se puede crear una leccion con descripcion larga menos de 10 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -336,7 +336,7 @@ test('crear una leccion con descripcion larga menos de 10 caracteres', () => {
     expect(sis.crearLeccion("nombre", 'descripción corta', canc, "ruta_imagen", descripcionLarga)).toBeFalsy();
 });
 
-test('crear una leccion con descripcion larga más de 2000 caracteres', () => {
+test('no se puede crear una leccion con descripcion larga más de 2000 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -353,7 +353,7 @@ test('crear una leccion con descripcion larga más de 2000 caracteres', () => {
 
 /*================================================== RUTA_FOTO ============================================================ */
 
-test('crear una lección con ruta_imagen vacía', () => {
+test('no se puede crear una lección con ruta_imagen vacía', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -362,7 +362,7 @@ test('crear una lección con ruta_imagen vacía', () => {
 });
 
 
-test('crear una leccion con ruta_imagen con largo más de 100 caracteres', () => {
+test('no se puede crear una leccion con ruta_imagen con largo más de 100 caracteres', () => {
    
     
     var canc = new sistema.cancion.Cancion();
@@ -390,16 +390,16 @@ test('crear una leccion con ruta_imagen con largo más de 100 caracteres', () =>
 
 
 
-test('traer una canción que no existe', () => {
+test('al intentar traer una canción que no existe retorna null', () => {
     
     var idCancion = 100;
     
-    expect(sis.traerCancion(idCancion)).not.toBeDefined();
+    expect(sis.traerCancion(idCancion)).toBeNull();
 
 });
 
 
-test('traer una canción que existe', () => {
+test('al intentar traer una canción que existe la retorna', () => {
     
     //PRIMERO CREO LA CANCION
 
@@ -408,13 +408,28 @@ test('traer una canción que existe', () => {
         tablatura+="a";
     }
 
-    var idCancion = 1;
-
-    sis.crearCancion('nombre', tablatura, 'autor1' , 'ruta_sonido');
+    cancionCreada = sis.crearCancion('nombre', tablatura, 'autor1' , 'ruta_sonido');
        
-    expect(sis.traerCancion(idCancion)).toBeDefined();
-
+    var laCancion = sis.traerCancion(cancionCreada.id);
+    var id = laCancion.id;
+    expect(laCancion).not.toBeNull();
+    expect(id).toBe(cancionCreada.id);
     
 });
 
 
+test('el sistema me crea correctamente 10 canciones de prueba', () => {
+    
+    sis.cargarCanciones()
+       
+    expect(sis.listaCanciones.length).toBe(10);
+
+});
+
+test('el sistema me crea correctamente 10 lecciones de prueba', () => {
+    
+    sis.cargarLecciones()
+       
+    expect(sis.listaLecciones.length).toBe(10);
+
+});
