@@ -283,6 +283,17 @@ table {
 .custom-file-label::after {
   content: "Buscar"; }
 
+.selCancion {
+  position: relative; }
+  .selCancion .ladoIzquierdo {
+    max-height: 0;
+    overflow: hidden; }
+    .selCancion .ladoIzquierdo.visible {
+      max-height: 500px; }
+  .selCancion .ladoDerecho {
+    max-height: 0;
+    overflow: hidden; }
+
 .container h1 {
   text-align: center;
   margin-top: 75px; }

@@ -1,3 +1,19 @@
 .custom-file-label::after{
 	content: "Buscar";
 }
+
+.selCancion{
+	position: relative;
+	.ladoIzquierdo{
+		max-height: 0;
+		overflow: hidden;
+
+		&.visible{
+			max-height: 500px;
+		}
+	}
+	.ladoDerecho{
+		max-height: 0;
+		overflow: hidden;
+	}
+}
