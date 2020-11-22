@@ -283,16 +283,24 @@ table {
 .custom-file-label::after {
   content: "Buscar"; }
 
+#btn-togleVisible {
+  transition: 0.5s ease-in-out;
+  display: block;
+  margin-left: 0%;
+  width: 250px; }
+  #btn-togleVisible.derecha {
+    margin-left: calc(100% - 250px); }
+
 .selCancion {
   position: relative; }
-  .selCancion .ladoIzquierdo {
+  .selCancion .ladoIzquierdo, .selCancion .ladoDerecho {
     max-height: 0;
-    overflow: hidden; }
-    .selCancion .ladoIzquierdo.visible {
-      max-height: 500px; }
-  .selCancion .ladoDerecho {
-    max-height: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s; }
+    .selCancion .ladoIzquierdo.visible, .selCancion .ladoDerecho.visible {
+      max-height: 500px;
+      opacity: 1; }
 
 .container h1 {
   text-align: center;

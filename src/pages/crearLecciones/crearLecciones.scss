@@ -2,18 +2,26 @@
 	content: "Buscar";
 }
 
+#btn-togleVisible{
+	transition: 0.5s ease-in-out;
+	display: block;
+	margin-left: 0%;
+	width: 250px;
+	&.derecha{
+		margin-left: calc(100% - 250px);
+	}
+}
+
 .selCancion{
 	position: relative;
-	.ladoIzquierdo{
+	.ladoIzquierdo, .ladoDerecho{
 		max-height: 0;
 		overflow: hidden;
-
+		opacity: 0;
+		transition: 0.5s;
 		&.visible{
 			max-height: 500px;
+			opacity: 1;
 		}
-	}
-	.ladoDerecho{
-		max-height: 0;
-		overflow: hidden;
 	}
 }
