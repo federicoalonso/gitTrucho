@@ -19,6 +19,10 @@ ___Versión 1.0___
 ### 3. [PROCESO DE BUILD](#I3)
 - ### 3.1. [Clonar el Repositorio](#I31)
 - ### 3.2. [Instalar la Aplicación](#I32)
+### 4. [CALIDAD DE CÓDIGO](#I4)
+- ### 4.1. [Código en JavaScript](I41)
+- ### 4.2. [Código en HTML y CSS](I42)
+### 5. [PRUEBAS UNITARIAS](#I5)
 
 # 1. PREFACIO <a name="I1"></a>
 
@@ -98,11 +102,63 @@ Para finalizar se accede a la carpeta y se hace doble click sobre el index.html
 
 ![Abrir en el Navegador](assets/build9.png)
 
-# 4. CALIDAD DE CÓDIGO
+# 4. CALIDAD DE CÓDIGO <a name="4"></a>
 
-## 4.1. Estándares de código fuente según el lenguaje
+El equipo estableció que el estándar de codificación sea el de Google:
 
-## 4.2. Uso de analizadores estéticos
+[Estandar de google](http://google.github.io/styleguide/), tanto para HTML/ CSS, como para JavaScript.
+
+De esta manera, facilitó el trabajo en equipo, ya que se hizo más fácil leer el código de todos los integrantes del grupo.
+
+Una de las técnicas utilizadas para mejorar la calidad del código consistió en la revisión de código, por cuestiones de tiempo el primer objetivo deseado fue tener la estructura de la página funcionando en detrimento de la calidad del código, pero de esta forma pudimos dividirnos mejor el trabajo, lo cual nos permitió trabajar en paralelo en el testing exploratorio, y la revisión de código y así asegurar el cumplimento de los estándares antes mencionados, para los cuales según la tecnología de desarrollo se encaró de distintas maneras:
+
+## 4.1. Código en JavaScript<a name="I41"></a>
+
+Además, concordamos en utilizar las siguientes herramientas que nos fueron de ayuda para aplicar estos estándares:
+
+- Plugin de VsCode: [JSHint](https://jshint.com/docs/options/)
+- Para mejorar el Formateo, vimos que la documentación de Google recomendaba [clang-format](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
+
+El plugin clang-format nos ayudó a detectar bastantes errores como por ejemplo:
+
+- Indentación.
+- Sangría.
+- Wspacios en blanco.
+- Mal uso de “var” para variables, sugiriendo usar “let” y “const” para los casos que la variable no tenía ninguna reasignación del valor.
+- Uso de comillas simples para String.
+- Estructuras de control, abertura y clausura.
+
+Cabe aclarar, que fue ignorada la recomendación que sugería eliminar el punto y coma al final de cada sentencia, pero que si era recomendado por el plugin JsHint.
+
+![Calidad de codigo 1](assets/calidad1.png)
+
+## 4.2. Código en HTML y CSS <a name="I42"></a>
+
+Además, concordamos en utilizar las siguientes herramientas que nos fueron de ayuda para aplicar estos estándares:
+
+Como herramienta para la validación del código HTML y CSS, subimos nuestro código al siguiente sitio [validador](https://validator.w3.org/#validate_by_upload), obteniendo los siguientes resultados:
+
+- en la página crearLecciones.html
+
+![Calidad de codigo 2](assets/calidad2.png)
+
+- en la página realizarLección.html
+
+![Calidad de codigo 3](assets/calidad3.png)
+
+- en la página verLecciones.html 
+
+![Calidad de codigo 4](assets/calidad4.png)
+
+- Validación del css en [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/)
+
+![Calidad de codigo 5](assets/calidad5.png)
+
+- En el archivo stylesConfig.css
+
+![Calidad de codigo 6](assets/calidad6.png)
+
+Para mejorar aún más la calidad del código, y la compresión de todos los miembros del equipo, pusimos especial énfasis en la documentación del código cuando la complejidad ameritaba, para lo cual utilizamos los estándares recomendados por JSDoc.
 
 # 5. PRUEBAS UNITARIAS
 
