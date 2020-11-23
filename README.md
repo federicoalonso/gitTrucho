@@ -102,7 +102,7 @@ Para finalizar se accede a la carpeta y se hace doble click sobre el index.html
 
 ![Abrir en el Navegador](assets/build9.png)
 
-# 4. CALIDAD DE CÓDIGO <a name="4"></a>
+# 4. CALIDAD DE CÓDIGO <a name="I4"></a>
 
 El equipo estableció que el estándar de codificación sea el de Google:
 
