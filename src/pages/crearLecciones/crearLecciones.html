@@ -69,6 +69,7 @@
                                     * Seleccione un archivo de sonido.
                                 </div>
                             </div>
+                            
                         </div>
                         <div><label>Cargue la Tablatura</label></div>
                         <!-- /.card-header -->
@@ -78,6 +79,8 @@
                                     style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                             </div>
                         </div>
+                        <button type="button" id="btn-guardar-cancion"
+                                class="btn btn-lg btn-block btn-outline-success mt-2">Guardar Canción</button>
                     </div>
                 </div>
             </div>
@@ -117,7 +120,7 @@
                 </div>
             </div>
             <button type="submit" id="btn-guardar"
-                class="btn btn-secondary btn-lg btn-block btn-outline-dark mt-2">Guardar</button>
+                class="btn btn-lg btn-block btn-outline-success mt-2 disabled" disabled="true">Guardar Lección</button>
         </form>
         <div class="toastAlert" id="cont-alerta">
             <div id="alerta" class="alert">

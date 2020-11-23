@@ -4,30 +4,127 @@ window.addEventListener("load", cargarSelect);
 document.getElementById("btn-guardar").addEventListener("click", (e) => {
     e.preventDefault();
     cargarLeccionYCancion();
+});
+
+document.getElementById("btn-guardar-cancion").addEventListener("click", (e) => {
+    e.preventDefault();
+    cargarCancion();
 })
 
 let sist = new Sistema();
 sist.cargarCanciones();
 
+var cancionSeleccionada = -1;
+
 function cargarSelect() {
     var options = "<option value='-1'>Seleccione una canción</option>";
 
     for (var i = 0; i < sist.listaCanciones.length; i++) {
-        options += `
-            <option value="${sist.listaCanciones[i].id}">${sist.listaCanciones[i].nombre}</option>
-        `;
+        if (cancionSeleccionada == sist.listaCanciones[i].id) {
+            options += `
+                <option value="${sist.listaCanciones[i].id}" selected>${sist.listaCanciones[i].nombre}</option>
+            `;
+        } else {
+            options += `
+                <option value="${sist.listaCanciones[i].id}">${sist.listaCanciones[i].nombre}</option>
+            `;
+        }
     }
 
     document.getElementById("sel-canciones").innerHTML = options;
 }
 
-function cargarLeccionYCancion() {
+function cargarCancion() {
     limpiarEstilos();
-    var cancion = document.getElementById("sel-canciones").value.trim();
+
     var nombre = document.getElementById("txt-nombre-cancion").value.trim();
     var tablatura = document.getElementById("txt-tablatura").value.trim();
     var autor = document.getElementById("txt-autor").value.trim();
     var sonido = document.getElementById("imp-sonido").value.trim();
+    var cuerpoAlerta = "";
+    if (nombre && autor && sonido && tablatura) {
+        if (nombre.length < 5 || nombre.length > 20) {
+            document.getElementById("val-txt-nombre-cancion").classList.remove("not");
+            document.getElementById("txt-nombre-cancion").classList.add("is-invalid");
+            cuerpoAlerta += "El nombre debe poseer entre 5 y 20 caracteres";
+        }
+        if (autor.length < 5 || autor.length > 20) {
+            document.getElementById("val-txt-autor").classList.remove("not");
+            document.getElementById("txt-autor").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "El nombre debe poseer entre 5 y 20 caracteres"
+        }
+        if (!sonido.includes(".mp3")) {
+            document.getElementById("val-imp-sonido").classList.remove("not");
+            document.getElementById("imp-sonido").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "Debe seleccionar una archivo .mp3"
+        }
+        if (sonido.length > 100) {
+            document.getElementById("val-imp-sonido").classList.remove("not");
+            document.getElementById("imp-sonido").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "La ruta del sonido no puede tener más de 100 caracteres."
+        }
+        if (tablatura.length < 1000 || tablatura.length > 5000) {
+            console.log(tablatura.length)
+            document.getElementsByClassName("note-editor note-frame card")[0].classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "La tablatura debe poseer entre 1000 y 5000 caracteres"
+        }
+        if (cuerpoAlerta !== "") {
+            volverVisible(cuerpoAlerta, "danger");
+            document.getElementById("btn-guardar").classList.add("disabled");
+            document.getElementById('btn-guardar').disabled = true;
+        } else {
+            var laCancion = sist.crearCancion(nombre, tablatura, autor, sonido);
+            if (laCancion) {
+                limpiarCampos();
+                limpiarEstilos();
+                volverVisible("Canción creada con éxito!", "success");
+                cancionSeleccionada = laCancion.id;
+                cargarSelect();
+                document.getElementById("btn-togleVisible").click();
+                document.getElementById("btn-guardar").classList.remove("disabled");
+                document.getElementById('btn-guardar').disabled = false;
+            } else {
+                volverVisible("No se pudo crear la canción", "error");
+                document.getElementById("btn-guardar").classList.add("disabled");
+                document.getElementById('btn-guardar').disabled = true;
+            }
+        }
+    } else {
+        if (!nombre) {
+            document.getElementById("val-txt-nombre-cancion").classList.remove("not");
+            document.getElementById("txt-nombre-cancion").classList.add("is-invalid");
+            cuerpoAlerta += "Debe ingresar un nombre de canción";
+        }
+        if (!autor) {
+            document.getElementById("val-txt-autor").classList.remove("not");
+            document.getElementById("txt-autor").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "Debe ingresar un autor de canción"
+        }
+        if (!sonido) {
+            document.getElementById("val-imp-sonido").classList.remove("not");
+            document.getElementById("imp-sonido").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "Debe seleccionar una archivo de sonido"
+        }
+        if (!tablatura) {
+            document.getElementsByClassName("note-editor note-frame card")[0].classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "Debe ingresar una tablatura de entre 1000 y 5000 caracteres"
+        }
+        document.getElementById("btn-guardar").classList.add("disabled");
+        document.getElementById('btn-guardar').disabled = true;
+        volverVisible(cuerpoAlerta, "error");
+    }
+
+}
+
+function cargarLeccionYCancion() {
+    var cancion = document.getElementById("sel-canciones").value.trim();
     var seleccionarCancion = document.getElementById("btn-togleVisible").classList.contains("derecha");
     //me fijo si elige una cancion existente
     if (!seleccionarCancion) {
@@ -39,72 +136,7 @@ function cargarLeccionYCancion() {
             crearClase(cancion);
         }
     } else {
-        var cuerpoAlerta = "";
-        if (nombre && autor && sonido && tablatura) {
-            if (nombre.length < 5 || nombre.length > 20) {
-                document.getElementById("val-txt-nombre-cancion").classList.remove("not");
-                document.getElementById("txt-nombre-cancion").classList.add("is-invalid");
-                cuerpoAlerta += "El nombre debe poseer entre 5 y 20 caracteres";
-            }
-            if (autor.length < 5 || autor.length > 20) {
-                document.getElementById("val-txt-autor").classList.remove("not");
-                document.getElementById("txt-autor").classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "El nombre debe poseer entre 5 y 20 caracteres"
-            }
-            if (!sonido.includes(".mp3")) {
-                document.getElementById("val-imp-sonido").classList.remove("not");
-                document.getElementById("imp-sonido").classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "Debe seleccionar una archivo .mp3"
-            }
-            if (sonido.length > 100) {
-                document.getElementById("val-imp-sonido").classList.remove("not");
-                document.getElementById("imp-sonido").classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "La ruta del sonido no puede tener más de 100 caracteres."
-            }
-            if (tablatura.length < 1000 || tablatura.length > 5000) {
-                document.getElementsByClassName("note-editor note-frame card")[0].classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "La tablatura debe poseer entre 1000 y 5000 caracteres"
-            }
-            if (cuerpoAlerta !== "") {
-                volverVisible(cuerpoAlerta, "danger");
-            } else {
-                var laCancion = sist.crearCancion(nombre, tablatura, autor, sonido);
-                if (laCancion) {
-                    crearClase(laCancion)
-                } else {
-                    volverVisible("No se pudo crear la canción", "error");
-                }
-            }
-        } else {
-            if (!nombre) {
-                document.getElementById("val-txt-nombre-cancion").classList.remove("not");
-                document.getElementById("txt-nombre-cancion").classList.add("is-invalid");
-                cuerpoAlerta += "Debe ingresar un nombre de canción";
-            }
-            if (!autor) {
-                document.getElementById("val-txt-autor").classList.remove("not");
-                document.getElementById("txt-autor").classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "Debe ingresar un autor de canción"
-            }
-            if (!sonido) {
-                document.getElementById("val-imp-sonido").classList.remove("not");
-                document.getElementById("imp-sonido").classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "Debe seleccionar una archivo de sonido"
-            }
-            if (!tablatura) {
-                document.getElementsByClassName("note-editor note-frame card")[0].classList.add("is-invalid");
-                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
-                cuerpoAlerta += "Debe ingresar una tablatura de entre 1000 y 5000 caracteres"
-            }
 
-            volverVisible(cuerpoAlerta, "error");
-        }
     }
 }
 
@@ -205,6 +237,9 @@ function limpiarEstilos() {
     document.getElementById("txt-descripcion-leccion").classList.remove("is-invalid");
     document.getElementById("fil-imagen").classList.remove("is-invalid");
     document.getElementsByClassName("note-editor note-frame card")[1].classList.remove("is-invalid");
+    document.getElementById("alerta").classList.remove('success');
+    document.getElementById("alerta").classList.remove('danger');
+    document.getElementById("alerta").classList.remove('error');
 }
 
 function limpiarCampos() {
