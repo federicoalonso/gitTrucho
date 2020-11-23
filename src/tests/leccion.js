@@ -6,7 +6,7 @@ class Leccion {
     
     this.id = autoIdLeccion;
     this.nombre = nombre;
-    this.desLeccion = descripcion;
+    this.descripcion = descripcion;
     this.desLeccion = desLeccion;
     this.fecha = d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear();
     this.cancion = cancion;

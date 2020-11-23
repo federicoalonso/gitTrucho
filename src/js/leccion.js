@@ -1,4 +1,4 @@
-export default class Leccion {
+class Leccion {
 
   constructor(autoIdLeccion, nombre, descripcion, cancion, ruta_imagen , desLeccion) {
 
@@ -15,3 +15,4 @@ export default class Leccion {
 
   }
 }
+

@@ -1,9 +1,40 @@
+class Cancion {
 
-        const cancion = require('./cancion.js');
-        const leccion = require('./leccion.js');
+  constructor(autoIdCancion, nombre, tablatura, autor , ruta_sonido) {
 
-        export default const cancion = require('./cancion.js');
-const leccion = require('./leccion.js');
+    this.id = autoIdCancion;
+    this.nombre = nombre;
+    this.autor = autor;
+    this.tablatura = tablatura;
+    this.ruta_sonido = ruta_sonido;
+   
+    
+  }
+}
+
+
+        class Leccion {
+
+  constructor(autoIdLeccion, nombre, descripcion, cancion, ruta_imagen , desLeccion) {
+
+    var d = new Date();
+    
+    this.id = autoIdLeccion;
+    this.nombre = nombre;
+    this.descripcion = descripcion;
+    this.desLeccion = desLeccion;
+    this.fecha = d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear();
+    this.cancion = cancion;
+    this.ruta_imagen = ruta_imagen;
+   
+
+  }
+}
+
+
+
+        
+
 var autoIdLeccion = 1;
 var autoIdCancion = 1; 
 
@@ -19,7 +50,7 @@ class Sistema {
 
   cargarCanciones() {
     for (var i = 0; i < 10; i++) {
-      var nuevaCancion = new cancion.Cancion(autoIdCancion, "Canción de Prueba " + (i+1), tablaturaPrueba, "Autor de Canción " + (i+1), "../../../server-side/sound/cancion1.mp3");
+      var nuevaCancion = new Cancion(autoIdCancion, "Canción de Prueba " + (i+1), tablaturaPrueba, "Autor de Canción " + (i+1), "../../../server-side/sound/cancion1.mp3");
       this.listaCanciones.push(nuevaCancion);
       autoIdCancion++;
     }
@@ -37,7 +68,7 @@ class Sistema {
         Estudiamos los fundamentos básicos del ritmo, aprendiendo a interiorizarlo y desarrollando la habilidad de ser capaz de sacar cualquier ritmo con escucharlo. Este curso lo dividimos en dos partes, en la primera aprenderemos toda la teoría, pero de manera práctica, desarrollando la técnica básica del ritmo. Después aprenderás 50 ritmos de manera progresiva, con ejemplos prácticos al estilo de canciones y progresiones muy conocidas de lo mejor de la música. Puedes descargar los PDF de cada lección además de todas las pistas de práctica.
       `;
       ((i%2)==0) ? ruta += "1.jpg" : ruta += "2.jpg";
-      var nuevaLeccion = new leccion.Leccion(autoIdLeccion, nombre, descripcion, cancion, ruta, desLeccion);
+      var nuevaLeccion = new Leccion(autoIdLeccion, nombre, descripcion, cancion, ruta, desLeccion);
       this.listaLecciones.push(nuevaLeccion);
       autoIdLeccion++;
     }
@@ -57,7 +88,7 @@ class Sistema {
       retorno = false;
     }
     else {
-      var unaLeccion = new leccion.Leccion(autoIdLeccion, nombre, descripCorta, cancion, ruta_imagen, descripLarga);
+      var unaLeccion = new Leccion(autoIdLeccion, nombre, descripCorta, cancion, ruta_imagen, descripLarga);
       this.listaLecciones.push(unaLeccion);
       autoIdLeccion++;
     }
@@ -76,7 +107,7 @@ class Sistema {
       autor.length < 5 || autor.length > 20 || ruta_sonido > 100) {
       return null;
     }
-    var unaCancion = new cancion.Cancion(autoIdCancion, nombre, tablatura, autor, ruta_sonido);
+    var unaCancion = new Cancion(autoIdCancion, nombre, tablatura, autor, ruta_sonido);
     this.listaCanciones.push(unaCancion);
     autoIdCancion++;
     return unaCancion;
@@ -130,14 +161,27 @@ Dormido está el león
 
 
 
-module.exports = {
-  Sistema: Sistema,
-  cancion: cancion,
-  leccion: leccion
+
+  
+  
+  
+
+
+window.addEventListener("load", cargarLeccion);
+
+const sis = new Sistema;
+sis.cargarCanciones();
+sis.cargarLecciones();
+
+function cargarLeccion(){
+
+    var leccion = sis.listaLecciones[0];
+
+    document.getElementById("titulo").innerHTML = `${ leccion.nombre } - <small>${ leccion.fecha }</small>`;
+    document.getElementById("nombreCancion").innerHTML = `${ leccion.cancion.nombre } - <small>${ leccion.cancion.autor }</small>`;
+    document.getElementById("descripcion").innerText = leccion.descripcion;
+    document.getElementById("audio").innerHTML = `<source src="${ leccion.cancion.ruta_sonido }" type="audio/mp3">
+                                                    Tu navegador no soporta audio HTML5.`;
+    document.getElementById("tablatura").innerHTML = leccion.cancion.tablatura;
+    document.getElementById("desLeccion").innerHTML = leccion.desLeccion;
 }
-module.exports = {
-    Sistema: Sistema,
-    cancion: cancion,
-    leccion: leccion
-}
-        

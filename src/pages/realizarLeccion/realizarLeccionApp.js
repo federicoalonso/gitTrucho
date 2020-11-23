@@ -17,5 +17,4 @@ function cargarLeccion(){
                                                     Tu navegador no soporta audio HTML5.`;
     document.getElementById("tablatura").innerHTML = leccion.cancion.tablatura;
     document.getElementById("desLeccion").innerHTML = leccion.desLeccion;
-
 }
