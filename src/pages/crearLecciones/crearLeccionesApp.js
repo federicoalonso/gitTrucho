@@ -58,6 +58,12 @@ function cargarLeccionYCancion() {
                 (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
                 cuerpoAlerta += "Debe seleccionar una archivo .mp3"
             }
+            if (sonido.length > 100) {
+                document.getElementById("val-imp-sonido").classList.remove("not");
+                document.getElementById("imp-sonido").classList.add("is-invalid");
+                (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+                cuerpoAlerta += "La ruta del sonido no puede tener más de 100 caracteres."
+            }
             if (tablatura.length < 1000 || tablatura.length > 5000) {
                 document.getElementsByClassName("note-editor note-frame card")[0].classList.add("is-invalid");
                 (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
@@ -132,6 +138,11 @@ function crearClase(cancion) {
             document.getElementById("fil-imagen").classList.add("is-invalid");
             (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
             cuerpoAlerta += "Debe ingresar una imágen válida."
+        }
+        if (imagen.length > 100) {
+            document.getElementById("fil-imagen").classList.add("is-invalid");
+            (cuerpoAlerta != "") ? cuerpoAlerta += "<br>" : '';
+            cuerpoAlerta += "La ruta de la imágen no puede tener más de 100 caracteres."
         }
         if (leccion.length < 10 || leccion.length > 2000) {
             document.getElementsByClassName("note-editor note-frame card")[1].classList.add("is-invalid");
